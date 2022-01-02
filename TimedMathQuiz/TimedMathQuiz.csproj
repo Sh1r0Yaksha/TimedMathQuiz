@@ -85,5 +85,11 @@
   <ItemGroup>
     <EmbeddedResource Include="Icons\download %282%29.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Docs\Images\TimedMathQuiz.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Docs\Readme\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
