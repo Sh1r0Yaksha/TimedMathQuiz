@@ -1,6 +1,6 @@
 ﻿namespace TimedMathQuiz
 {
-    partial class Form1
+    partial class TimedMathQuiz
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimedMathQuiz));
             this.TimeCounterLabel = new System.Windows.Forms.Label();
             this.TimeLeftTextLabel = new System.Windows.Forms.Label();
             this.LeftOfPlusLabel = new System.Windows.Forms.Label();
@@ -53,6 +54,10 @@
             this.MultiplyNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.StartButton = new System.Windows.Forms.Button();
             this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.addCheckbox = new System.Windows.Forms.CheckBox();
+            this.subtractCheckbox = new System.Windows.Forms.CheckBox();
+            this.multiplyCheckbox = new System.Windows.Forms.CheckBox();
+            this.divideCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.AdditionNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubtractNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DivideNumericUpDown)).BeginInit();
@@ -272,7 +277,7 @@
             this.DivideNumericUpDown.Location = new System.Drawing.Point(314, 231);
             this.DivideNumericUpDown.Name = "DivideNumericUpDown";
             this.DivideNumericUpDown.Size = new System.Drawing.Size(100, 41);
-            this.DivideNumericUpDown.TabIndex = 20;
+            this.DivideNumericUpDown.TabIndex = 21;
             this.DivideNumericUpDown.Enter += new System.EventHandler(this.AnswerEnter);
             // 
             // MultiplyNumericUpDown
@@ -286,7 +291,7 @@
             0});
             this.MultiplyNumericUpDown.Name = "MultiplyNumericUpDown";
             this.MultiplyNumericUpDown.Size = new System.Drawing.Size(100, 41);
-            this.MultiplyNumericUpDown.TabIndex = 21;
+            this.MultiplyNumericUpDown.TabIndex = 20;
             this.MultiplyNumericUpDown.Enter += new System.EventHandler(this.AnswerEnter);
             // 
             // StartButton
@@ -305,11 +310,57 @@
             this.Timer.Interval = 1000;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // Form1
+            // addCheckbox
+            // 
+            this.addCheckbox.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.addCheckbox.AutoSize = true;
+            this.addCheckbox.BackColor = System.Drawing.SystemColors.Control;
+            this.addCheckbox.Enabled = false;
+            this.addCheckbox.ForeColor = System.Drawing.SystemColors.Control;
+            this.addCheckbox.Location = new System.Drawing.Point(435, 103);
+            this.addCheckbox.Name = "addCheckbox";
+            this.addCheckbox.Size = new System.Drawing.Size(18, 17);
+            this.addCheckbox.TabIndex = 23;
+            this.addCheckbox.UseVisualStyleBackColor = false;
+            // 
+            // subtractCheckbox
+            // 
+            this.subtractCheckbox.AutoSize = true;
+            this.subtractCheckbox.Enabled = false;
+            this.subtractCheckbox.Location = new System.Drawing.Point(435, 149);
+            this.subtractCheckbox.Name = "subtractCheckbox";
+            this.subtractCheckbox.Size = new System.Drawing.Size(18, 17);
+            this.subtractCheckbox.TabIndex = 24;
+            this.subtractCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // multiplyCheckbox
+            // 
+            this.multiplyCheckbox.AutoSize = true;
+            this.multiplyCheckbox.Enabled = false;
+            this.multiplyCheckbox.Location = new System.Drawing.Point(435, 199);
+            this.multiplyCheckbox.Name = "multiplyCheckbox";
+            this.multiplyCheckbox.Size = new System.Drawing.Size(18, 17);
+            this.multiplyCheckbox.TabIndex = 25;
+            this.multiplyCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // divideCheckbox
+            // 
+            this.divideCheckbox.Enabled = false;
+            this.divideCheckbox.Location = new System.Drawing.Point(436, 246);
+            this.divideCheckbox.Name = "divideCheckbox";
+            this.divideCheckbox.Size = new System.Drawing.Size(17, 23);
+            this.divideCheckbox.TabIndex = 26;
+            this.divideCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // TimedMathQuiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 349);
+            this.Controls.Add(this.divideCheckbox);
+            this.Controls.Add(this.multiplyCheckbox);
+            this.Controls.Add(this.subtractCheckbox);
+            this.Controls.Add(this.addCheckbox);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.MultiplyNumericUpDown);
             this.Controls.Add(this.DivideNumericUpDown);
@@ -334,9 +385,13 @@
             this.Controls.Add(this.TimeLeftTextLabel);
             this.Controls.Add(this.TimeCounterLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "TimedMathQuiz";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Timed Maths Quiz";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CancelButtonClick);
             ((System.ComponentModel.ISupportInitialize)(this.AdditionNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubtractNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DivideNumericUpDown)).EndInit();
@@ -372,6 +427,10 @@
         private System.Windows.Forms.NumericUpDown MultiplyNumericUpDown;
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Timer Timer;
+        private System.Windows.Forms.CheckBox addCheckbox;
+        private System.Windows.Forms.CheckBox subtractCheckbox;
+        private System.Windows.Forms.CheckBox multiplyCheckbox;
+        private System.Windows.Forms.CheckBox divideCheckbox;
     }
 }
 

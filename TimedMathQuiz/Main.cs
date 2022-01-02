@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace TimedMathQuiz
 {
-    public partial class Form1 : Form
+    public partial class TimedMathQuiz : Form
     {
         Random randomizer = new Random();
 
@@ -28,7 +28,7 @@ namespace TimedMathQuiz
 
         int timeLeft;
 
-        public Form1()
+        public TimedMathQuiz()
         {
             InitializeComponent();
         }
@@ -40,6 +40,7 @@ namespace TimedMathQuiz
             timeLeft = 30;
             TimeCounterLabel.Text = timeLeft + " seconds";
             Timer.Start();
+            TimeCounterLabel.BackColor = Color.Empty;
         }
           
         private void StartQuiz()
@@ -48,8 +49,8 @@ namespace TimedMathQuiz
             addend2 = randomizer.Next(0, 100);
             subtractant1 = randomizer.Next(0, 100);
             subtractant2 = randomizer.Next(0, 100);
-            multiplicant1 = randomizer.Next(0, 10);
-            multiplicant2 = randomizer.Next(0, 10);
+            multiplicant1 = randomizer.Next(1, 10);
+            multiplicant2 = randomizer.Next(1, 10);
             divident2 = randomizer.Next(2, 15);
             int tempQuotient = randomizer.Next(2, 9);
             divident1 = divident2 * tempQuotient;  
@@ -70,12 +71,18 @@ namespace TimedMathQuiz
             SubtractNumericUpDown.Value = 0;
             MultiplyNumericUpDown.Value = 0;
             DivideNumericUpDown.Value = 0;
+
+            addCheckbox.Checked = false;
+            subtractCheckbox.Checked = false;
+            multiplyCheckbox.Checked = false;
+            divideCheckbox.Checked = false;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
             if (CheckAnswers())
             {
+                TickCheckboxes();
                 Timer.Stop();
                 MessageBox.Show("You got all answers right, congratulations!");
                 TimeCounterLabel.Text = "";
@@ -83,6 +90,7 @@ namespace TimedMathQuiz
             }
             else if (timeLeft > 0)
             {
+                TickCheckboxes();
                 timeLeft -= 1;
                 TimeCounterLabel.Text = timeLeft + " seconds";
                 if (timeLeft < 10)
@@ -111,6 +119,27 @@ namespace TimedMathQuiz
                 return false;
         }
 
+        private void TickCheckboxes()
+        {
+            if (addend1 + addend2 == AdditionNumericUpDown.Value)
+            {
+                addCheckbox.Checked = true;
+                
+            }
+            if (subtractant1 - subtractant2 == SubtractNumericUpDown.Value)
+            {
+                subtractCheckbox.Checked = true;
+            }
+            if (multiplicant1 * multiplicant2 == MultiplyNumericUpDown.Value)
+            {
+                multiplyCheckbox.Checked = true;
+            }
+            if (divident1 / divident2 == DivideNumericUpDown.Value)
+            {
+                divideCheckbox.Checked = true;
+            }
+        }
+
         private void AnswerEnter(object sender, EventArgs e)
         {
             NumericUpDown answerBox = sender as NumericUpDown;
@@ -119,6 +148,14 @@ namespace TimedMathQuiz
             {
                 int lengthOfAnswer = answerBox.Value.ToString().Length;
                 answerBox.Select(0, lengthOfAnswer);
+            }
+        }
+
+        private void CancelButtonClick(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to quit?", "close application", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
             }
         }
     }
