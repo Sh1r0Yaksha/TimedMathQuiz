@@ -69,6 +69,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Docs\Readme\Readme.md" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,9 +88,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Docs\Images\TimedMathQuiz.jpg" />
+    <Content Include="Docs\Images\TimedMathQuiz1.jpg" />
+    <Content Include="Docs\Images\TimedMathQuiz2.jpg" />
+    <Content Include="Docs\Images\TimedMathQuiz3.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Docs\Readme\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
