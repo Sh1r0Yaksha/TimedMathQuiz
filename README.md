@@ -3,6 +3,7 @@ A small program that gives a timed arithmetic quiz.
 
 # How to use
 Just download and open the .exe file from https://github.com/Sh1r0Yaksha/TimedMathQuiz/releases.
+Click on the 'Start the quiz' button to start the quiz with a timer of 30 seconds.
 
 # Images
 ![Image 1 of app](/TimedMathQuiz/Docs/Images/TimedMathQuiz.jpg)\
